@@ -202,16 +202,16 @@ const init = function (el, binding, vnode) {
 }
 
 export default {
-  inserted: function (el, binding, vnode) {
+  mounted: function (el, binding, vnode) {
     init(el, binding, vnode)
   },
-  update: function (el, binding, vnode, oldVnode) {
+  updated: function (el, binding, vnode, oldVnode) {
     // update the component only if the parameters change
     if (JSON.stringify(binding.value) !== JSON.stringify(binding.oldValue)) {
       init(el, binding, vnode)
     }
   },
-  unbind: function (el, binding, vnode) {
+  unmounted: function (el, binding, vnode) {
     const target = el
     u.removeEventListeners(target, POINTER_START_EVENTS, target.md)
     u.removeEventListeners(window, POINTER_END_EVENTS, target.mu)

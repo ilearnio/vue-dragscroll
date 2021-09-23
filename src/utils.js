@@ -25,7 +25,7 @@ export default {
         event = document.createEvent('CustomEvent')
         event.initCustomEvent(eventName, true, true, eventDetail)
       }
-      vnode.elm.dispatchEvent(event)
+      vnode.el.dispatchEvent(event)
     }
   },
 
